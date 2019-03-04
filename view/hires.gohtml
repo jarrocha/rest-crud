@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Current Hires</title>
+    <style>
+        html, body, p {
+            padding: 0;
+            border: 0;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: left;
+            height: 100vh;
+        }
+        p {
+            margin-left: 4rem;
+            font-size: 2rem;
+            color: black;
+          }
+        .link {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+<h1> Showing All Hired Employess</h1>
+<table>
+<tr style='text-align: left'>
+<th>Name</th>
+<th>Type</th>
+</tr>
+
+{{range .}}
+<tr style='text-align: left'>
+<td><a href="/users/show?name={{.Name}}">{{.Name}}</a></td>
+<td>{{.Type}}</td>
+<td><a href="/users/update?name={{.Name}}">Update</a> </td>
+<td><a href="/users/delete/process?name={{.Name}}">Delete</a></td>
+</tr>
+{{end}}
+</table>
+
+<p class="link"><a href="/users/create">New Hired?</a></p>
+</body>
+</html>
